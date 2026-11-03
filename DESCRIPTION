@@ -1,0 +1,10 @@
+Package: vicfreight
+Title: Exploring Victorian Freight-Related Road Activity
+Version: 0.0.0.9000
+Authors@R: 
+    person("Annamalai Vikash Raam", "Manoj", role = c("aut", "cre"))
+Description: A collection of tools for preparing and exploring Victorian road traffic data, with an emphasis on heavy-vehicle activity, vehicle composition and patterns across monitoring locations.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.1.0
