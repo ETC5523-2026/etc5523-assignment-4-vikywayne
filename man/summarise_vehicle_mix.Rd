@@ -25,9 +25,17 @@ Calculates total traffic volume and the percentage contribution
 of each vehicle class within selected groups.
 }
 \examples{
+data("traffic_counts", package = "vicfreight")
+
+example_data <- traffic_counts[
+  traffic_counts$site \%in\% c(10001, 10002) &
+    traffic_counts$date >= as.Date("2026-05-01") &
+    traffic_counts$date <= as.Date("2026-05-07"),
+]
+
 summarise_vehicle_mix(
-  traffic_counts,
-  group_by = c("site", "vehicle_class"),
+  example_data,
+  group_by = "site",
   classification_scheme = "4-bin"
 )
 

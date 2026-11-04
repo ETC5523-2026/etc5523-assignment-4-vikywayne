@@ -14,8 +14,16 @@
 #' @return A data frame containing site, total volume and record count.
 #'
 #' @examples
+#' data("traffic_counts", package = "vicfreight")
+#'
+#' example_data <- traffic_counts[
+#'   traffic_counts$site %in% c(10001, 10002) &
+#'     traffic_counts$date >= as.Date("2026-05-01") &
+#'     traffic_counts$date <= as.Date("2026-05-07"),
+#' ]
+#'
 #' compare_sites(
-#'   traffic_counts,
+#'   example_data,
 #'   sites = c(10001, 10002)
 #' )
 #'
@@ -65,7 +73,7 @@ compare_sites <- function(
     stop("No observations found for the selected filters.")
   }
   
-  result <- aggregate(
+  result <- stats::aggregate(
     cbind(total_volume = data$volume, records = 1),
     by = list(site = data$site),
     FUN = sum

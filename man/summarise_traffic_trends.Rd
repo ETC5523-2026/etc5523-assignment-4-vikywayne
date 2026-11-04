@@ -33,8 +33,16 @@ Aggregates traffic volume over daily or monthly periods,
 optionally by monitoring site and vehicle class.
 }
 \examples{
+data("traffic_counts", package = "vicfreight")
+
+example_data <- traffic_counts[
+  traffic_counts$site \%in\% c(10001, 10002) &
+    traffic_counts$date >= as.Date("2026-05-01") &
+    traffic_counts$date <= as.Date("2026-05-07"),
+]
+
 summarise_traffic_trends(
-  traffic_counts,
+  example_data,
   period = "monthly",
   group_by = "site"
 )

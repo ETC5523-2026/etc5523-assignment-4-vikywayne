@@ -32,7 +32,7 @@ groups, such as monitoring sites, vehicle classes or months.
 }
 \examples{
 \dontrun{
-data("traffic_counts")
+data("traffic_counts", package = "vicfreight")
 summarise_traffic(
   traffic_counts,
   group_by = c("site", "vehicle_class")

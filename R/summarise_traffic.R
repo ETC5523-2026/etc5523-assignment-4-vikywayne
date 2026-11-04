@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' data("traffic_counts")
+#' data("traffic_counts", package = "vicfreight")
 #' summarise_traffic(
 #'   traffic_counts,
 #'   group_by = c("site", "vehicle_class")
@@ -144,7 +144,7 @@ summarise_traffic <- function(
   }
   
   # Calculate total volume for each group
-  result <- aggregate(
+  result <- stats::aggregate(
     data["volume"],
     by = data[group_by],
     FUN = sum
@@ -155,7 +155,7 @@ summarise_traffic <- function(
   ] <- "total_volume"
   
   # Count the number of source records in each group
-  record_counts <- aggregate(
+  record_counts <- stats::aggregate(
     rep(1L, nrow(data)),
     by = data[group_by],
     FUN = sum

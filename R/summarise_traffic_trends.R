@@ -15,8 +15,16 @@
 #'   and total traffic volume.
 #'
 #' @examples
+#' data("traffic_counts", package = "vicfreight")
+#'
+#' example_data <- traffic_counts[
+#'   traffic_counts$site %in% c(10001, 10002) &
+#'     traffic_counts$date >= as.Date("2026-05-01") &
+#'     traffic_counts$date <= as.Date("2026-05-07"),
+#' ]
+#'
 #' summarise_traffic_trends(
-#'   traffic_counts,
+#'   example_data,
 #'   period = "monthly",
 #'   group_by = "site"
 #' )
@@ -89,7 +97,7 @@ summarise_traffic_trends <- function(
   
   grouping_columns <- unique(c("time_period", group_by))
   
-  result <- aggregate(
+  result <- stats::aggregate(
     data["volume"],
     by = data[grouping_columns],
     FUN = sum

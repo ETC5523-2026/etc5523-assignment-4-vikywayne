@@ -15,9 +15,17 @@
 #'   total volume and percentage share of total volume.
 #'
 #' @examples
+#' data("traffic_counts", package = "vicfreight")
+#'
+#' example_data <- traffic_counts[
+#'   traffic_counts$site %in% c(10001, 10002) &
+#'     traffic_counts$date >= as.Date("2026-05-01") &
+#'     traffic_counts$date <= as.Date("2026-05-07"),
+#' ]
+#'
 #' summarise_vehicle_mix(
-#'   traffic_counts,
-#'   group_by = c("site", "vehicle_class"),
+#'   example_data,
+#'   group_by = "site",
 #'   classification_scheme = "4-bin"
 #' )
 #'
@@ -83,7 +91,7 @@ summarise_vehicle_mix <- function(
   # Calculate volume by group and vehicle class
   grouping_columns <- unique(c(group_by, "vehicle_class"))
   
-  grouped_data <- aggregate(
+  grouped_data <- stats::aggregate(
     data["volume"],
     by = data[grouping_columns],
     FUN = sum
@@ -93,7 +101,7 @@ summarise_vehicle_mix <- function(
     "total_volume"
   
   # Calculate total volume within each group
-  group_totals <- aggregate(
+  group_totals <- stats::aggregate(
     grouped_data["total_volume"],
     by = grouped_data[group_by],
     FUN = sum
