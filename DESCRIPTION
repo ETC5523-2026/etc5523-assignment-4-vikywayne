@@ -17,7 +17,12 @@ Roxygen: list(markdown = TRUE)
 Config/roxygen2/version: 8.1.1
 Suggests:
     ggplot2,
+    knitr,
     leaflet,
     plotly,
+    rmarkdown,
     shiny
-
+VignetteBuilder: knitr
+URL: https://etc5523-2026.github.io/etc5523-assignment-4-vikywayne/,
+    https://github.com/ETC5523-2026/etc5523-assignment-4-vikywayne
+BugReports: https://github.com/ETC5523-2026/etc5523-assignment-4-vikywayne/issues

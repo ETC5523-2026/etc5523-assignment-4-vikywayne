@@ -1,0 +1,50 @@
+
+url: https://etc5523-2026.github.io/etc5523-assignment-4-vikywayne/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [github]
+  components:
+    intro:
+      text: Home
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      href: articles/index.html
+    github:
+      icon: fa-github
+      href: https://github.com/ETC5523-2026/etc5523-assignment-4-vikywayne
+      aria-label: GitHub
+
+reference:
+  - title: Package functions
+    contents:
+      - run_vicfreight
+      - summarise_traffic
+      - compare_sites
+      - summarise_vehicle_mix
+      - summarise_traffic_trends
+
+  - title: Included datasets
+    contents:
+      - traffic_counts
+      - telemetry_sites
+      - site_day_coverage
+
+articles:
+  - title: Using VICFREIGHT
+    desc: >
+      Start here to learn how to install VICFREIGHT, access its included
+      datasets, navigate the Shiny dashboard and interpret the traffic
+      analysis outputs.
+    contents:
+      - exploring-vicfreight
+
+
