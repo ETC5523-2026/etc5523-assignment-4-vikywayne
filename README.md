@@ -88,7 +88,7 @@ The dashboard uses the datasets bundled with the installed package and does not 
 
 The package website and function reference documentation are available here:
 
-**Package website:** To be added after the pkgdown site is published.
+**Package website:** https://etc5523-2026.github.io/etc5523-assignment-4-vikywayne/
 
 ## Generative AI declaration
 
